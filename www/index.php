@@ -1,6 +1,6 @@
 <?
-require_once("lib/l10n.php");
-require_once("lib/gravatar.php");
+require_once("l10n.php");
+require_once("gravatar.php");
 print '<?xml version="1.0" encoding="utf-8"?>'."\n";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
