@@ -1,0 +1,19 @@
+#Main Page {
+
+display: table;
+
+}
+
+
+#row one {
+
+display: table-row;
+
+}
+
+
+#left col, #center, #right col {
+
+display: table-cell;
+
+}

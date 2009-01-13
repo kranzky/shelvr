@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" >
+<title>fanglr.com - The new fangled way to browse your library and get recommendations!</title>
+
+<script src="scripts/prototype.js" type="text/javascript"></script>
+<script src="scripts/scriptaculous.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+doStamp = function(i) {
+document.write('<span class="stamp" id=sa_' + i + '"1">');
+document.write('<img class="cover" id=a_' + i + '"1" src="fallout3.jpg" alt="" />')
+document.write('<br>This is game number ' + i)
+document.write('</span>');
+}
+
+</script>
+
+</head>
+<body bgcolor="#9fa3c4">
+
+<div align="center">
+<img src="title.png" >
+</div>
+
+<style>
+span.stamp { font-family:Helvetica, Tahoma, Arial, sans-serif; font-size:8pt; padding:3px; text-align:center; vertical-align:middle; display:inline-block; width:114px; height:114px; }
+img.cover { height:96px }
+#pane1, #pane2, #pane3 { padding:6px; width:788px; display:table-cell  }
+#pane1 { background-color:#F99F40 }
+#pane2 { background-color:#D3D3D3 }
+#pane3 { background-color:#8D8D8D }
+#table { border:0px; padding:0px; margin:0px;   }
+#main { text-align:center; }
+</style>
+<div id="main">
+
+<table align="center" width="800px">
+<tr><td>
+
+<span id="pane1">
+<script type="text/javascript">
+var i=0;
+for (i=0;i<=10;i++)
+{
+doStamp(i)
+}
+</script>
+</span>
+</td></tr>
+
+<tr><td>
+<span id="pane2">
+<script type="text/javascript">
+var i=0;
+for (i=11;i<=20;i++)
+{
+doStamp(i)
+}
+</script>
+</span>
+
+</td></tr>
+<tr><td>
+
+<span id="pane3">
+<script type="text/javascript">
+var i=0;
+for (i=21;i<=30;i++)
+{
+doStamp(i)
+}
+</script>
+</span>
+
+</td></tr></table>
+
+</div>
+
+<script type="text/javascript">
+(function(){ 
+  opts = {
+    tag:'span',overlap:'horizontal',constraint: false, 
+	containment:["pane1", "pane2", "pane3"],
+
+  }
+  
+  Sortable.create('pane1', opts);
+  Sortable.create('pane2', opts);
+  Sortable.create('pane3', opts);
+  
+})();
+</script>
+
+
+</body>
+</html>
