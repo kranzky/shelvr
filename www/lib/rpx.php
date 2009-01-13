@@ -138,6 +138,7 @@ class RPX {
 
         $curl = curl_init();
 
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -170,63 +171,5 @@ class RPX {
         return $doc;
     }
 }
-
-/*
- * API methods that we can demonstrate from the command line.
- */
-global $SUPPORTED_METHODS;
-$SUPPORTED_METHODS = array("map", "unmap", "mappings");
-
-/*
- * Print out usage information for this demo code.
- */
-function usage() {
-  global $SUPPORTED_METHODS;
-  global $argv;
-
-  print sprintf(
-     "Usage: %s <API key> <RPX service URL> <%s> [param ...]\n",
-     $argv[0], implode("|", $SUPPORTED_METHODS));
-
-  print "API methods:\n";
-  print "  map <identifier> <primary key>\n";
-  print "  unmap <identifier> <primary key>\n";
-  print "  mappings <primary key>\n";
-
-  exit(1);
-}
-
-function main() {
-  global $SUPPORTED_METHODS;
-  global $argv;
-
-  if (count($argv) < 3) {
-    usage();
-  }
-
-  list(, $api_key, $base_url, $api_method) = $argv;
-
-  if (!in_array($api_method, $SUPPORTED_METHODS)) {
-    usage();
-  }
-
-  $rpx = new RPX($api_key, $base_url);
-  $parameters = array_slice($argv, 4);
-
-  try {
-      $result = call_user_func_array(array($rpx, $api_method), $parameters);
-  } catch (APIException $e) {
-      print "Error encountered while trying to perform API request:\n";
-      print $e->getMessage()."\n";
-      exit(1);
-  }
-
-  if ($result !== null) {
-    print sprintf("Result of '%s' API call:\n", $api_method);
-    print_r($result);
-  }
-}
-
-main();
 
 ?>

@@ -1,6 +1,6 @@
 <?
 require_once("l10n.php");
-require_once("rpx.php");
+include_once("rpx.php");
 print '<?xml version="1.0" encoding="utf-8"?>'."\n";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -16,9 +16,9 @@ print '<?xml version="1.0" encoding="utf-8"?>'."\n";
 if (array_key_exists('token', $_GET))
 {
     $rpx = new RPX("2013e9e4d57d026d062ffe67f764badd76ef925a",
-                   "http://fanglr.rpxnow.com/");
-    $dom = $rpx.auth_info($_GET['token']);
-    echo $dom; 
+                   "https://fanglr.rpxnow.com/");
+    $dom = $rpx->auth_info($_GET['token']);
+    echo $dom->saveXML();
 }
 ?>
 <h1><?echo _("log into fanglr with open id");?></h1>
