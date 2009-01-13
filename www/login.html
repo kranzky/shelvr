@@ -1,0 +1,29 @@
+<?
+require_once("l10n.php");
+require_once("rpx.php");
+print '<?xml version="1.0" encoding="utf-8"?>'."\n";
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head> 
+<title>fanglr - organize and share your game library</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+</head>
+<body>
+<?
+if (array_key_exists('token', $_GET))
+{
+    $rpx = new RPX("2013e9e4d57d026d062ffe67f764badd76ef925a",
+                   "http://fanglr.rpxnow.com/");
+    $dom = $rpx.auth_info($_GET['token']);
+    echo $dom; 
+}
+?>
+<h1><?echo _("log into fanglr with open id");?></h1>
+<iframe src="https://fanglr.rpxnow.com/openid/embed?token_url=<?echo urlencode("http://localhost/fanglr/login.html")?>" scrolling="no" frameBorder="no" style="width:400px;height:240px;">
+</iframe>
+<p><a href="privacy.html"><?echo _("privacy policy");?></a></p>
+</body>
+</html>

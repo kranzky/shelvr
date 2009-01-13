@@ -12,17 +12,19 @@ print '<?xml version="1.0" encoding="utf-8"?>'."\n";
 <meta http-equiv="Content-Style-Type" content="text/css" />
 </head>
 <body>
-<h1><?echo _("Hello World");?></h1>
+<h1><?echo _("fanglr loves you");?></h1>
+<p><a href="login.html">login</a></p>
 <?
-$email = "JasonHutchens@gmail.com";
-$default = "";
-$gravatar = new Gravatar($email, $default);
-$gravatar->size = 128;
-$gravatar->rating = "G";
-$gravatar->setDefault("http://friedcellcollective.net/monsterid/".
-                      $gravatar->gravatar_id."/128");
-echo $gravatar;
-# API: 2013e9e4d57d026d062ffe67f764badd76ef925a
-?>
+#$email = "JasonHutchens@gmail.com";
+#$default = "";
+#$gravatar = new Gravatar($email, $default);
+#$gravatar->size = 128;
+#$gravatar->rating = "G";
+#$gravatar->setDefault("http://friedcellcollective.net/monsterid/".
+#                      $gravatar->gravatar_id."/128");
+#echo $gravatar;
+#?>
+
+<p><a href="privacy.html"><?echo _("privacy policy");?></a></p>
 </body>
 </html>
