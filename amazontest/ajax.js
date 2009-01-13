@@ -1,7 +1,7 @@
 Event.observe(window, 'load', init, false);
 
 function init(){
-     $('go').style.display = 'none';
+     
      Event.observe('asin', 'keyup', search, false);
      Ajax.getTransport = function() {
     return Try.these(
@@ -15,13 +15,19 @@ function init(){
 
 function search(){
      var url = 'http://ecs.amazonaws.com/onca/xml';
-
-     var service = "Service=AWSECommerceService";
-     var key = "AWSAccessKeyId=0WP94RV66RVMX6FYBMG2";
-     var operation = "Operation=ItemLookup";
-     var item = "ItemId="+escape($F('asin'));
+	
+     var service = "AWSECommerceService";
+     var key = "0WP94RV66RVMX6FYBMG2";
+     var operation = "ItemLookup";
+     var item = escape($F('asin'));
      
-     var pars=url + service + "&" + key + "&" + operation + "&" + item
+     var pars={ Service:service, AWSAccessKeyId:key, 
+		Operation:operation, ItemId:item};
 
-     var myAjax = new Ajax.Updater("results", url, {method: 'get', parameters: pars});
+     document.getElementById("status").innerHTML = url + pars
+
+     var myAjax = new Ajax.Request( url, {
+	method: 'get', 
+	parameters: pars,
+	onSuccess: function(transport) {alert(transport.responseText);} });
 }
