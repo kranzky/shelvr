@@ -1,7 +1,6 @@
 <?
-require_once("l10n.php");
-require_once("gravatar.php");
 print '<?xml version="1.0" encoding="utf-8"?>'."\n";
+session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -12,8 +11,8 @@ print '<?xml version="1.0" encoding="utf-8"?>'."\n";
 <meta http-equiv="Content-Style-Type" content="text/css" />
 </head>
 <body>
-<h1><?echo _("fanglr loves you");?></h1>
-<p><a href="login.html">login</a></p>
+<h1><?echo $_SESSION['name'];?></h1>
+<p><?echo $_SESSION['avatar'];?></p>
 <p><a href="privacy.html"><?echo _("privacy policy");?></a></p>
 </body>
 </html>
