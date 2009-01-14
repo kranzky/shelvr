@@ -17,6 +17,39 @@ document.write('<br>This is game number ' + i)
 document.write('</span>');
 }
 
+toggleCheckBox = function(name) {
+$(name).checked = !( $(name).checked);
+}
+
+checkAll = function(chks) {
+	for (i=0;i<chks.length;i++) {
+	  $(chks[i]).checked = true;
+	}
+}
+
+checkNone = function(chks) {
+	for (i=0;i<chks.length;i++) {
+	  $(chks[i]).checked = false;
+	}
+}
+
+doMenu = function(name, title, itms) {
+	document.write('<span class="menuheading" onmouseover=showmenu("' + name + '") onmouseout=hidemenu("' + name + '") )><div class="menuheadingtext">' + title +'</div>' );
+	document.write('<div class="menu" id="' + name + '" > ' );
+
+	var chks = []
+	for (i=0;i<itms.length;i++)
+	{	
+	    var chkname = 'chk' + name + i
+		itm = itms[i];
+		document.write('<div class="menuitem' + i%2 + '" onClick=toggleCheckBox("'+chkname+'");>' );
+		document.write('<input type="checkbox" id="'+chkname+'">' + itm + '</div>');
+		chks.push("'" + chkname + "'");
+	}
+	document.write('<div><span class="minilink" onclick=checkAll(['+chks+'])>Check All</span><span class="minilink" onclick=checkNone(['+chks+'])>None</span></div>');
+	document.write('</div></span>');
+	hidemenu(name);
+}
 </script>
 
 </head>
@@ -27,18 +60,125 @@ document.write('</span>');
 </div>
 
 <style>
-span.stamp { font-family:Helvetica, Tahoma, Arial, sans-serif; font-size:8pt; padding:3px; text-align:center; vertical-align:middle; display:inline-block; width:114px; height:114px; }
+
+html, body, ul, ol, li, p,
+h1, h2, h3, h4, h5, h6,
+form, fieldset, a {
+margin: 0;
+padding: 0;
+border: 0;
+}
+
+body{font-family:Helvetica, Tahoma, Arial, sans-serif;}
+
+span.stamp {  font-size:8pt; padding:3px; text-align:center; vertical-align:middle; display:inline-block; width:114px; height:114px; }
 img.cover { height:96px }
 #pane1, #pane2, #pane3 { padding:6px; width:788px; display:table-cell  }
 #pane1 { background-color:#F99F40 }
 #pane2 { background-color:#D3D3D3 }
 #pane3 { background-color:#8D8D8D }
-#table { border:0px; padding:0px; margin:0px;   }
-#main { text-align:center; }
-</style>
-<div id="main">
 
+#main { text-align:center; }
+
+div.menuitem0 { text-align:left; cursor:pointer; text-decoration:none; color:black }
+div.menuitem0:hover { background-color:#D1CFDE; cursor:pointer; text-decoration:none; color:black }
+div.menuitem1 { background-color:#A5A2BD; text-align:left; cursor:pointer; text-decoration:none; color:black }
+div.menuitem1:hover { background-color:#D1CFDE; cursor:pointer; text-decoration:none; color:black }
+
+span.minilink 
+{
+	padding-top:4px;
+	display:table-cell; 
+	display:inline-block;  
+	width:90;
+	font-size:75%;
+	color:blue;
+}
+span.minilink:hover
+{
+	color:red;
+}
+
+span.menuheading 
+{ 
+
+	text-align:center; 
+	color:white; 
+	width:194px; 
+	display:table-cell; 
+	display:inline-block;  
+	cursor:pointer 
+}
+
+span.menuheading:hover
+{ 
+
+	text-align:center; 
+	color:white; 
+	width:194px; 
+	display:inline-block;  
+	cursor:pointer 
+}
+
+span.fakemenuheading 
+{ 
+	text-align:center; 
+	color:#9396B5; 
+	width:194px; 
+	display:inline-block;  
+}
+
+div.menuheadingtext
+{ 
+	padding:2px; 
+}
+
+div.menu
+{
+	
+	width:184px;
+	padding:5px;
+	background-color:#B3B1C7;
+	z-index:2;
+	position:absolute;
+}
+
+table
+{
+background-color:#3A3B57;
+}
+
+</style>
+<script type="text/javascript">
+function showmenu(elmnt)
+{
+document.getElementById(elmnt).style.visibility="visible";
+
+}
+function hidemenu(elmnt)
+{
+document.getElementById(elmnt).style.visibility="hidden";
+}
+</script>
+</head>
+
+<body>
+<div id="main">
 <table align="center" width="800px">
+<tr><td>
+ <div class="menubar">
+  <span class="fakemenuheading" style="font-size:80%;"> Show me games that match... </span> 
+  <script type="text/javascript"> doMenu("ownership", "Ownership", 
+										["Games I Own", "My Wishlist", "Games Friends Own"]); 
+  </script> <script type="text/javascript"> doMenu("genre", "Genre", 
+										["Platformer", "FPS", "Role Playing", "Massively Multiplayer",
+										 "Strategy", "Racing", "Simulation", "Rhythm"]); 
+  </script> <script type="text/javascript"> doMenu("platform", "Platform", 
+										["PC", "XBox", "XBox360", "PS3", "DS", "GBA", "Wii", "PSP", "PSOne", "PS2"]); 
+  </script>
+ </div>
+</td></tr>
+
 <tr><td>
 
 <span id="pane1">
