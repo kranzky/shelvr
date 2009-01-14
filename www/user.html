@@ -1,18 +1,4 @@
-<?
-print '<?xml version="1.0" encoding="utf-8"?>'."\n";
-session_start();
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-<head> 
-<title>fanglr - organize and share your game library</title>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-</head>
-<body>
+<? require_once("header.php"); ?>
 <h1><?echo $_SESSION['name'];?></h1>
 <p><?echo $_SESSION['avatar'];?></p>
-<p><a href="privacy.html"><?echo _("privacy policy");?></a></p>
-</body>
-</html>
+<? require_once("footer.php"); ?>
