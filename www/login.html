@@ -17,13 +17,25 @@ if (array_key_exists('token', $_GET))
 {
     $rpx = new RPX("2013e9e4d57d026d062ffe67f764badd76ef925a",
                    "https://fanglr.rpxnow.com/");
-    $dom = $rpx->auth_info($_GET['token']);
-    echo $dom->saveXML();
+    $profile = $rpx->get_profile($rpx->auth_info($_GET['token']));
+?>
+<h1><?echo $profile['name'];?></h1>
+<ul>
+<li><?echo $profile['id'];?></li>
+<li><?echo $profile['email'];?></li>
+<li><?echo $profile['avatar'];?></li>
+</ul>
+<?
 }
+else
+{
 ?>
 <h1><?echo _("log into fanglr with open id");?></h1>
 <iframe src="https://fanglr.rpxnow.com/openid/embed?token_url=<?echo urlencode("http://localhost/fanglr/login.html")?>" scrolling="no" frameBorder="no" style="width:400px;height:240px;">
 </iframe>
 <p><a href="privacy.html"><?echo _("privacy policy");?></a></p>
+<?
+}
+?>
 </body>
 </html>

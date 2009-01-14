@@ -44,6 +44,15 @@ class RPX {
         return $this->apiCall("auth_info", array("token" => $token));
     }
 
+    public function get_profile($dom) {
+        $profile = array();
+        $profile['id'] = $this->_extract($dom, 'identifier');
+        $profile['email'] = $this->_extract($dom, 'email');
+        $profile['avatar'] = $this->_extract($dom, 'photo');
+        $profile['name'] = $this->_extract($dom, 'preferredUsername');
+        return $profile;
+    }
+
     /*
      * Returns an array of identifier mappings for the specified
      * primary key.
@@ -169,6 +178,15 @@ class RPX {
         }
 
         return $doc;
+    }
+
+    private function _extract($dom, $tag) {
+        $list = $dom->getElementsByTagName($tag);
+        if ($list->length == 1)
+        {
+            return $list->item(0)->nodeValue;
+        }
+        return "";
     }
 }
 
