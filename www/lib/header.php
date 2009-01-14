@@ -1,7 +1,9 @@
 <?
 require_once("l10n.php");
 echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
+ini_set('session.use_only_cookies', 1);
 session_start();
+$_SESSION["back"] = $_SERVER["SCRIPT_NAME"];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -15,3 +17,10 @@ session_start();
 <a class="rpxnow" onclick="return false;"
    href="https://fanglr.rpxnow.com/openid/v2/signin?token_url=<?echo
    urlencode("http://localhost/fanglr/login.html")?>"><? echo _("Register / Sign In "); ?></a>
+<?
+if(array_key_exists("error", $_SESSION))
+{
+    echo "<p>"._("Fanglr is sorry: ")._($_SESSION["error"])."</p>";
+    echo "<p>"._("Please don't hold it against us :(")."</p>";
+    unset($_SESSION["error"]);
+}

@@ -1,5 +1,10 @@
 <?
-require_once("l10n.php");
+ini_set('session.use_only_cookies', 1);
+session_start();
+foreach ($_SESSION as $k => $v)
+{
+    echo "<p>".$k." : ".$v."</p>";
+}
 if (array_key_exists('token', $_GET))
 {
     include_once("rpx.php");
@@ -12,7 +17,7 @@ if (array_key_exists('token', $_GET))
     }
     catch (APIException $e)
     {
-        $error = _("something went screwy");
+        $_SESSION['error'] = "Your login attempt failed for some reason.";
         $rpx = NULL;
     }
 }
@@ -26,41 +31,9 @@ if (isset($profile))
         $gravatar->setDefault("http://friedcellcollective.net/monsterid/".
                               $gravatar->gravatar_id."/120");
     }
-    ini_set("session.cookie_domain",substr($_SERVER[HTTP_HOST],3));
-    session_start();
-    # Find or add to database; make sure name is unique on add
     $_SESSION['id'] = 0;
     $_SESSION['name'] = $profile['name'];
     $_SESSION['avatar'] = $gravatar->toHTML();
-    # Redirect to user page (localhost/username)
-    # Allow user to modify username (use profile by default, if not a dupe)
-    header('Location: http://localhost/fanglr/user.html');
 }
-else
-{
-print '<?xml version="1.0" encoding="utf-8"?>'."\n";
+header("Location: ".$_SESSION["back"]);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-<head> 
-<title>fanglr - organize and share your game library</title>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-</head>
-<body>
-<h1><?echo _("log in to fanglr with OpenID");?></h1>
-<?
-if (isset($error))
-{
-    echo "<p>"._("fanglr is confused: ").$error."</p>\n";
-}
-?>
-<iframe src="https://fanglr.rpxnow.com/openid/embed?token_url=<?echo urlencode("http://localhost/fanglr/login.html")?>" scrolling="no" frameBorder="no" style="width:400px;height:240px;">
-</iframe>
-<p><a href="privacy.html"><?echo _("privacy policy");?></a></p>
-<?
-}
-?>
-</body>
-</html>
