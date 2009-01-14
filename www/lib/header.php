@@ -14,10 +14,22 @@ $_SESSION["back"] = $_SERVER["SCRIPT_NAME"];
 <meta http-equiv="Content-Style-Type" content="text/css" />
 </head>
 <body>
-<a class="rpxnow" onclick="return false;"
-   href="https://fanglr.rpxnow.com/openid/v2/signin?token_url=<?echo
-   urlencode("http://localhost/fanglr/login.html")?>"><? echo _("Register / Sign In "); ?></a>
 <?
+if (array_key_exists('id', $_SESSION))
+{
+?>
+<p><a href="user.html"><? echo $_SESSION["name"]; ?></a> / <a href="logout.html"><? echo _("Sign Out"); ?></a></p>
+<?
+}
+else
+{
+?>
+<p><a class="rpxnow" onclick="return false;"
+   href="https://fanglr.rpxnow.com/openid/v2/signin?token_url=<?echo
+   urlencode("http://localhost/fanglr/login.html")?>"><? echo _("Register / Sign
+   In "); ?></a></p>
+<?
+}
 if(array_key_exists("error", $_SESSION))
 {
     echo "<p>"._("Fanglr is sorry: ")._($_SESSION["error"])."</p>";

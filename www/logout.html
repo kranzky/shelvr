@@ -1,0 +1,17 @@
+<?
+ini_set('session.use_only_cookies', 1);
+session_start();
+$redirect = "/fanglr/";
+if (array_key_exists("back", $_SESSION))
+{
+    $redirect = $_SESSION["back"];
+}
+$_SESSION = array();
+if (isset($_COOKIE[session_name()]))
+{
+    setcookie(session_name(), '', time()-42000, '/');
+}
+session_regenerate_id();
+session_destroy();
+header("Location: ".$redirect);
+?>

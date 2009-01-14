@@ -1,10 +1,6 @@
 <?
 ini_set('session.use_only_cookies', 1);
 session_start();
-foreach ($_SESSION as $k => $v)
-{
-    echo "<p>".$k." : ".$v."</p>";
-}
 if (array_key_exists('token', $_GET))
 {
     include_once("rpx.php");
@@ -35,5 +31,10 @@ if (isset($profile))
     $_SESSION['name'] = $profile['name'];
     $_SESSION['avatar'] = $gravatar->toHTML();
 }
-header("Location: ".$_SESSION["back"]);
+$redirect = "/fanglr/";
+if (array_key_exists("back", $_SESSION))
+{
+    $redirect = $_SESSION["back"];
+}
+header("Location: ".$redirect);
 ?>
