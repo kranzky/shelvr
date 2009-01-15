@@ -18,7 +18,7 @@ $_SESSION["back"] = $_SERVER["SCRIPT_NAME"];
 if (array_key_exists('id', $_SESSION))
 {
 ?>
-<p><a href="user.html"><? echo $_SESSION["name"]; ?></a> / <a href="logout.html"><? echo _("Sign Out"); ?></a></p>
+<p><a href="/fanglr/user.html"><? echo $_SESSION["name"]; ?></a> / <a href="logout.html"><? echo _("Sign Out"); ?></a></p>
 <?
 }
 else
