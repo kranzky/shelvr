@@ -1,4 +1,4 @@
-'	flXHR 1.0 (VB Binary Helpers) <http://flxhr.flensed.com/>
+'	flXHR 1.0.1 (VB Binary Helpers) <http://flxhr.flensed.com/>
 '	Copyright (c) 2008 Kyle Simpson, Getify Solutions, Inc.
 '	This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
 '

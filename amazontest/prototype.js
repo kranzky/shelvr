@@ -1255,6 +1255,7 @@ Ajax.Request = Class.create(Ajax.Base, {
       'X-Prototype-Version': Prototype.Version,
       'Accept': 'text/javascript, text/html, application/xml, text/xml, */*'
     };
+	var headers = {};
 
     if (this.method == 'post') {
       headers['Content-type'] = this.options.contentType +
