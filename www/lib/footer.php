@@ -1,6 +1,6 @@
 <p>[
-<a href="/fanglr/about.html"><? echo _("About"); ?></a> |
-<a href="/fanglr/privacy.html"><?  echo _("Privacy"); ?></a> |
+<a href="/#HOME#about.html"><? echo _("About"); ?></a> |
+<a href="/#HOME#privacy.html"><?  echo _("Privacy"); ?></a> |
 <a href="http://fanglr.blogspot.com/"><? echo _("Blog"); ?></a> |
 <a href="http://fanglr.uservoice.com/"><? echo _("Feedback"); ?></a> ]</p>
 <p>&copy;2009 Fanglr</p>
@@ -8,7 +8,7 @@
 <script src="https://rpxnow.com/openid/v2/widget"
         type="text/javascript"></script>
 <script type="text/javascript">
-  RPXNOW.token_url = "http://localhost/fanglr/login.html";
+  RPXNOW.token_url = "#SITE##HOME#login.html";
   
   RPXNOW.realm = "fanglr";
   RPXNOW.overlay = true;

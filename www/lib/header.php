@@ -18,7 +18,7 @@ $_SESSION["back"] = $_SERVER["SCRIPT_NAME"];
 if (array_key_exists('id', $_SESSION))
 {
 ?>
-<p><a href="/fanglr/user.html"><? echo $_SESSION["name"]; ?></a> / <a href="logout.html"><? echo _("Sign Out"); ?></a></p>
+<p><a href="/#HOME#user.html"><? echo $_SESSION["name"]; ?></a> / <a href="logout.html"><? echo _("Sign Out"); ?></a></p>
 <?
 }
 else
@@ -26,7 +26,7 @@ else
 ?>
 <p><a class="rpxnow" onclick="return false;"
    href="https://fanglr.rpxnow.com/openid/v2/signin?token_url=<?echo
-   urlencode("http://localhost/fanglr/login.html")?>">
+   urlencode("#SITE##HOME#login.html")?>">
    <? echo _("Register / Sign In"); ?></a></p>
 <?
 }
