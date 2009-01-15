@@ -1,8 +1,8 @@
 <?
-require_once("l10n.php");
-echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
 ini_set('session.use_only_cookies', 1);
 session_start();
+require_once("l10n.php");
+echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
 $_SESSION["back"] = $_SERVER["SCRIPT_NAME"];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
