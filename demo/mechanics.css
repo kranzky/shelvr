@@ -9,9 +9,13 @@ border: 0;
 
 span.stamp {  font-size:8pt; padding:3px; text-align:center; vertical-align:middle; display:inline-block; width:114px; height:114px; }
 img.cover { height:96px }
-span.pane { text-align:left; padding:6px; width:788px; display:table-cell  }
+td.pane { text-align:left; padding:6px; width:100%; }
+
+table { padding:0px; border:0px; border-spacing:0px }
 
 #main { text-align:center; }
+#maintable { width:80%; }
+#spacer { width:800px; height:3px}
 
 div.menuitem0 { text-align:left; cursor:pointer;  }
 div.menuitem1 { text-align:left; cursor:pointer;  }
