@@ -11,17 +11,25 @@
 	<script type="text/javascript" src="flXHR.js"></script>
     <script type="text/javascript" src="prototype.js"></script>
     <script type="text/javascript" src="ajax.js"></script>
+	
+	<style>
+	span.stamp {  font-size:8pt; padding:3px; text-align:center; vertical-align:middle; display:inline-block; width:114px; height:114px; }
+	img.cover { height:96px }
+	</style>
 </head> 
 <body>
+	<form onsubmit=search();return false;>
+	<div>
+	
+		<label for="asin">ASIN:</label>
+		<input id="asin" type="text" value="B001BXA9CE" >
+		<input id="keywords" type="text" value="BioShock">
+		<input id="go" type="button" value="Go!" onclick=search()>
+	</div>
+	</form>
 
-    <form method="get" action="" id="greeting-form">
-        <div>
-            <label for="asin">ASIN:</label>
-            <input id="asin" type="text" />
-        </div>
-        
-    </form>
+	<div id="status"></div>
 	<div id="results"></div>
-        <div id="status"></div>
+    
 </body>
 </html>

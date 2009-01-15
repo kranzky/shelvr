@@ -2,14 +2,14 @@ Event.observe(window, 'load', init, false);
 
 function init(){
 
-     Event.observe('asin', 'keyup', search, false);
+     //Event.observe('asin', 'keyup', search, false);
      Ajax.getTransport = function() { 
 	    /*var f = new flensed.flXHR({
 			autoUpdatePlayer:true,			
 			xmlResponseText:false,
 			onerror:handleError,
 			noCacheHeader:false}); */
-		var f = new flensed.flXHR({ autoUpdatePlayer:true, instanceId:"myproxy1", xmlResponseText:false, onerror:handleError, onreadystatechange:handleLoading, noCacheHeader:false });
+		var f = new flensed.flXHR({ autoUpdatePlayer:true, xmlResponseText:true, onerror:handleError, noCacheHeader:false });
 	    return f;
      };
 }
@@ -33,22 +33,42 @@ function handleLoading(XHRobj) {
 	}
 }
 
-function search(){
+function itemsearch(responseObject) 
+{
 
-     var url = 'http://ecs.amazonaws.com/onca/xml';
+	$('status').innerHTML = "Parsing...";
+	XMLDOM = responseObject.responseXML;
+	items = XMLDOM.getElementsByTagName('Item');
+
+	var s = "";
 	
-     var service = "AWSECommerceService";
-     var key = "0WP94RV66RVMX6FYBMG2";
-     var operation = "ItemLookup";
-     var item = escape($F('asin'));
-     
-     var pars="Service=" + service + "&" +
-              "AWSAccessKeyId=" + key + "&" +
-	      "Operation=" + operation+ "&" + 
- 		"ItemId=" + item ;
-	//var pars = "";
+	for (var i = 0; i < items.length; i++) 
+	{	
+		try {
+			var item = items[i];
+			var imageurl = item.getElementsByTagName("MediumImage")[0].getElementsByTagName("URL")[0].textContent;
+			var asinid = item.getElementsByTagName("ASIN")[0].textContent;
+			var title = item.getElementsByTagName("ItemAttributes")[0].getElementsByTagName("Title")[0].textContent;
+			s += '<span class="stamp"><img class="cover" src="'+ imageurl + '"/><br/>' + title +'</span> \n';
+		} catch(err) {
+			// Probably there was no image etc
+		}
+	}
 
-    //document.getElementById("status").innerHTML = url + "?" + pars
+	$('results').innerHTML = s;
+	$('status').innerHTML = "Done";
+}
 
-    var myAjax = new Ajax.Updater( "status", url, { method: 'get', parameters:pars } );
+function search(){
+	$('status').innerHTML = "Fetching...";
+    var url = 'http://ecs.amazonaws.com/onca/xml';
+	var search = escape($F('keywords').replace(/'/g,"").replace(/"/g,"")).replace(/%20/g, ",");
+	
+	var pars = { Service:"AWSECommerceService", AWSAccessKeyId:"0WP94RV66RVMX6FYBMG2",
+			     Operation:"ItemSearch", //ItemId:escape($F('asin')),
+				 ResponseGroup:"Images,ItemAttributes", Keywords:search,
+				 SearchIndex:"VideoGames" };
+
+	
+    var myAjax = new Ajax.Request( url, { method: 'get', parameters:pars, onSuccess:function(response) {itemsearch(response)} });
 }
