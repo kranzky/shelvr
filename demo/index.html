@@ -57,10 +57,11 @@
   <span class="fakemenuheading" > 
 	
 	<span style="color:white;">Search:</span>  
-	<input id="keywords" type="text" value="BioShock" onkeypress=searchOnKey()>
+	<form onsubmit="search(); return false;">
+	<input id="keywords" type="text" value="BioShock" >
 	<input id="go" type="button" value="Go" onclick=search()>
 	<input id="go" type="button" value="Hide" onclick=hideresults()>
-
+	</form>
   </span> 
   <span class="fakemenuheading" > 
 		<span id="status"></span>  

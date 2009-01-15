@@ -5,6 +5,7 @@ messages = [ "Welcome to fanglr, try a search!",
 			 "You can clear and hide the results pane you know ;)",
 			 "fanglr should behave pretty well if you resize it.",
 			 "Persistence and sign-on coming when cool meets mundane!",
+			 "10 results is the max that will display, search wisely!",
 			 "Known bug: If you empty a pane, it's boned!" ];
 			 
 
@@ -71,6 +72,12 @@ function itemsearch(responseObject)
 	}
 	setStatus("Parsing Results...");
 	
+	if (items.length == 0)
+	{
+		hideresults();
+		setStatus("No Results :(");
+		return;
+	}
 	var s = "";
 	
 	for (var i = 0; i < items.length; i++) 
@@ -101,12 +108,6 @@ function itemsearch(responseObject)
 	}
 	Sortable.create('resultspane', opts);
 	
-}
-
-function searchOnKey() {
-	if (window.event.keyCode == 13) {
-		search();
-	}
 }
 
 function search(){
