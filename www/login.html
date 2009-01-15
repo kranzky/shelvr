@@ -31,7 +31,7 @@ if (isset($profile))
     $_SESSION['name'] = $profile['name'];
     $_SESSION['avatar'] = $gravatar->toHTML();
 }
-$redirect = "/fanglr/";
+$redirect = "/#HOME#";
 if (array_key_exists("back", $_SESSION))
 {
     $redirect = $_SESSION["back"];
