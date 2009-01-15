@@ -1,6 +1,10 @@
 <?require_once("locale/supported.php");?>
 <?
 $arr=explode(",", str_replace(";", ",", $_SERVER['HTTP_ACCEPT_LANGUAGE']));
+if (array_key_exists('language', $_SESSION))
+{
+    array_unshift($arr, $_SESSION["language"]);
+}
 foreach($arr as $val)
 {
     if($val[1]=='=') continue;

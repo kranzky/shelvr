@@ -9,99 +9,99 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-Country: JAPAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: c:/Users/jason.hutchens/git/shelvr/www\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: lib/footer.php:2
 msgid "About"
-msgstr "Sobre"
+msgstr "〜について"
 
 #: lib/footer.php:3
 msgid "Privacy"
-msgstr "Privacidade"
+msgstr "プライバシー"
 
 #: lib/footer.php:4
 msgid "Blog"
-msgstr "Blog"
+msgstr "ブログ"
 
 #: lib/footer.php:5
 msgid "Feedback"
-msgstr "Resposta"
+msgstr "フィードバック"
 
 #: lib/header.php:12
 msgid "sort and show your stuff"
-msgstr "ordenar e mostrar as suas coisas"
+msgstr "並べ替えて自分のものを表示"
 
 #: lib/header.php:21
 msgid "Sign Out"
-msgstr "Sair"
+msgstr "サインアウト"
 
 #: lib/header.php:30
 msgid "Register / Sign In"
-msgstr "Register / Sign In"
+msgstr "登録/ログイン"
 
 #: lib/header.php:35
 msgid "Fanglr is sorry: "
-msgstr "Fanglr é desculpa:"
+msgstr "Fanglr残念です： "
 
 #: lib/header.php:36
 msgid "Please don't hold it against us :("
-msgstr "Por favor, não realizá-la contra nós :("
+msgstr "私たちのことをされていません :("
 
 #: about.html:2
 msgid "Hello, World"
-msgstr "Olá Mundo"
+msgstr "こんにちは、世界"
 
 #: about.html:3
 msgid "Fanglr started when Jack Casey and Jason Hutchens had some unanticipated time off from their day jobs."
-msgstr "Fanglr começou quando Jack Casey e Jason Hutchens unanticipated tido algum tempo fora de seu dia empregos."
+msgstr "ジャックケーシーとJasonハッチェンズFanglr時、その人の仕事をしたからいくつかの予想外の時間を始めた。 "
 
 #: index.html:2
 msgid "Fanglr Loves You"
-msgstr "Fanglr Loves You"
+msgstr "Fanglrあなたを愛する"
 
 #: index.html:3
 msgid "Fanglr is the best way to sort and show your stuff, and discover what you need to make your collection more awesome."
-msgstr "Fanglr é a melhor forma de ordenar e mostrar as suas coisas, e descubra o que você precisa para tornar a sua coleção mais incrível."
+msgstr "Fanglrソートすると自分のものを表示する最良の方法であり、あなたのコレクションをより素晴らしいものを発見する必要があります。"
 
 #: index.html:4
 msgid "We're brand spanking new, so please be gentle!"
-msgstr "Estamos a marca spanking novo, por isso, ser gentil!"
+msgstr "私たちはできたてほやほやのため、優しくしてください！"
 
 #: missing.html:5
 msgid "Oh, Snap!"
-msgstr "Oh, Snap!"
+msgstr "ああ、スナップ！"
 
 #: missing.html:6
 msgid "This is not the page you're looking for."
-msgstr "Esta não é a página que você está procurando."
+msgstr "これは、お探しのページはありません。"
 
 #: missing.html:7
 msgid "It is, in fact, a 404."
-msgstr "É, na verdade, um 404."
+msgstr "これは、実際には、 404 。"
 
 #: missing.html:8
 msgid "Fanglr is sorry :("
-msgstr "Fanglr é desculpa :("
+msgstr "Fanglr申し訳ないです :("
 
 #: privacy.html:2
 msgid "Privacy Policy"
-msgstr "Política de Privacidade"
+msgstr "プライバシーポリシー"
 
 #: privacy.html:4
 msgid "Fanglr does not store your email address; we just use it when you sign in to generate your avatar."
-msgstr "Fanglr não armazena o seu e-mail, mas apenas usá-lo quando você faz login em gerar o seu avatar."
+msgstr "Fanglrお客様のメールアドレスを格納することはありません。我々だけで、自分のアバターを生成するときに署名を使用しています。"
 
 #: privacy.html:5
 msgid "Fanglr is not a nasty-pasty; we will never do anything naughty with the information we do store (which is your username and your stuff)."
-msgstr "Fanglr não é um sórdido-pastosa; nunca iremos fazer nada danado com a informação que fazemos loja (que é o seu nome de usuário e as suas coisas)."
+msgstr "青白いFanglrは嫌なものではありません。私たちは店の情報では何もいたずらすることはありません（これはあなたのユーザ名と自分のものです） 。"
 
 #: privacy.html:6
 msgid "Fanglr promises to always let you easily delete your information from our servers."
-msgstr "Fanglr promete sempre deixá-lo facilmente apagar os seus dados de nossos servidores."
+msgstr "Fanglr常にお客様の情報を簡単にGoogleのサーバーから削除できるように約束している。"
 
 #~ msgid "Get To Know Fanglr"
 #~ msgstr "Conheça a Fanglr"
