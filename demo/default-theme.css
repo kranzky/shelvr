@@ -1,0 +1,44 @@
+body{font-family:Helvetica, Tahoma, Arial, sans-serif;}
+
+#pane1 { background-color:#F99F40 }
+#pane2 { background-color:#D3D3D3 }
+#pane3 { background-color:#8D8D8D }
+
+div.menuitem0 { text-decoration:none; color:black }
+div.menuitem0:hover { background-color:#D1CFDE; }
+div.menuitem1 { background-color:#A5A2BD; text-decoration:none; color:black }
+div.menuitem1:hover { background-color:#D1CFDE; }
+
+span.minilink 
+{
+	color:blue;
+}
+span.minilink:hover
+{
+	color:red;
+}
+
+span.menuheading 
+{ 
+	color:white; 
+}
+
+span.menuheading:hover
+{ 
+	background-color:#5A5D76;
+}
+
+span.fakemenuheading 
+{ 
+	color:#9396B5; 
+}
+
+div.menu
+{
+	background-color:#B3B1C7;
+}
+
+table
+{
+background-color:#3A3B57;
+}

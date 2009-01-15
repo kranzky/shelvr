@@ -3,15 +3,12 @@ Event.observe(window, 'load', init, false);
 function init(){
      
      Event.observe('asin', 'keyup', search, false);
-     Ajax.getTransport = function() {
-    return Try.these(
-        function() {return new SWFHttpRequest()},
-        function() {return new XMLHttpRequest()},
-        function() {return new ActiveXObject('Msxml2.XMLHTTP')},
-        function() {return new ActiveXObject('Microsoft.XMLHTTP')}
-    ) || false;
-};
+     Ajax.getTransport = function() { 
+	return new flensed.flXHR({instancePooling:true,autoUpdatePlayer:true,xmlResponseText:false,onerror:handleError,loadPolicyURL:"http://ecs.amazonaws.com/crossdomain.xml"}); 
+     };
 }
+
+function handleError() { alert("Errors")}
 
 function search(){
      var url = 'http://ecs.amazonaws.com/onca/xml';
@@ -21,13 +18,14 @@ function search(){
      var operation = "ItemLookup";
      var item = escape($F('asin'));
      
-     var pars={ Service:service, AWSAccessKeyId:key, 
-		Operation:operation, ItemId:item};
+     var pars="Service=" + service + "&" +
+              "AWSAccessKeyId=" + key + "&" +
+	      "Operation=" + operation+ "&" + 
+ 		"ItemId=" + item ;
 
-     document.getElementById("status").innerHTML = url + pars
+     document.getElementById("status").innerHTML = url + "?" + pars
 
      var myAjax = new Ajax.Request( url, {
-	method: 'get', 
-	parameters: pars,
-	onSuccess: function(transport) {alert(transport.responseText);} });
+	method: 'post', 
+	onComplete: function(transport) {alert(transport.responseText + transport.statusNumber + transport.status);} });
 }

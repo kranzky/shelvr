@@ -1,0 +1,57 @@
+/* reset default paddings etc */
+html, body, ul, ol, li, p, 
+h1, h2, h3, h4, h5, h6,
+form, fieldset, a {
+margin: 0;
+padding: 0;
+border: 0;
+}
+
+span.stamp {  font-size:8pt; padding:3px; text-align:center; vertical-align:middle; display:inline-block; width:114px; height:114px; }
+img.cover { height:96px }
+span.pane { text-align:left; padding:6px; width:788px; display:table-cell  }
+
+#main { text-align:center; }
+
+div.menuitem0 { text-align:left; cursor:pointer;  }
+div.menuitem1 { text-align:left; cursor:pointer;  }
+
+span.minilink 
+{
+	padding-top:4px;
+	display:table-cell; 
+	display:inline-block;  
+	width:90px;
+	font-size:75%;
+	text-align:center;
+}
+
+span.menuheading 
+{ 
+	text-align:center; 
+	width:194px; 
+	display:table-cell; 
+	display:inline-block;  
+	cursor:pointer 
+}
+
+span.fakemenuheading 
+{ 
+	text-align:center; 
+	width:194px; 
+	display:inline-block;  
+}
+
+div.menuheadingtext
+{ 
+	padding:2px; 
+}
+
+div.menu
+{
+	
+	width:184px;
+	padding:5px;
+	z-index:2;
+	position:absolute;
+}
