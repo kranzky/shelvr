@@ -7,18 +7,22 @@ padding: 0;
 border: 0;
 }
 
-span.stamp {  font-size:8pt; padding:3px; text-align:center; vertical-align:middle; display:inline-block; width:114px; height:114px; }
-img.cover { height:96px }
+span.stamp {  margin:0px; padding:3px; text-align:center; vertical-align:middle; display:inline-block; width:105px; height:105px; }
+img.cover { height:105px }
 td.pane { text-align:left; padding:6px; width:100%; }
 
 table { padding:0px; border:0px; border-spacing:0px }
 
 #main { text-align:center; }
 #maintable { width:80%; }
-#spacer { width:800px; height:3px}
+div.spacer { width:800px; height:3px}
 
 div.menuitem0 { text-align:left; cursor:pointer;  }
 div.menuitem1 { text-align:left; cursor:pointer;  }
+
+div.stamptext { visibility:hidden; z-index:1; position:absolute; width:100%; }
+
+input, label { display:inline-block; display:table-cell; }
 
 span.minilink 
 {
@@ -42,8 +46,10 @@ span.menuheading
 span.fakemenuheading 
 { 
 	text-align:center; 
-	width:194px; 
+	display:table-cell; 
 	display:inline-block;  
+	font-size:80%;
+	width:48%;
 }
 
 div.menuheadingtext

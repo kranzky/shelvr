@@ -3,11 +3,14 @@ body{font-family:Helvetica, Tahoma, Arial, sans-serif;}
 #pane1 { background-color:#F99F40 }
 #pane2 { background-color:#D3D3D3 }
 #pane3 { background-color:#8D8D8D }
+#resultspane { background-color:#CC4040 }
 
 div.menuitem0 { text-decoration:none; color:black }
 div.menuitem0:hover { background-color:#D1CFDE; }
 div.menuitem1 { background-color:#A5A2BD; text-decoration:none; color:black }
 div.menuitem1:hover { background-color:#D1CFDE; }
+
+div.stamptext { font-size:8pt; font-weight:bold; background-color:white; margin-left:-3px; margin-top:0px; padding-top:2px; padding-bottom:2px; opacity:0.7 }
 
 span.minilink 
 {
@@ -28,7 +31,7 @@ span.menuheading:hover
 	background-color:#5A5D76;
 }
 
-span.fakemenuheading 
+#status 
 { 
 	color:#9396B5; 
 }

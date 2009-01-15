@@ -327,7 +327,7 @@ var Draggable = Class.create({
       this.delta = this.currentDelta();
 
     if(this.options.zindex) {
-      this.originalZ = parseInt(Element.getStyle(this.element,'z-index') || 0);
+      this.originalZ = parseInt(Element.getStyle(this.element,'z-index')) || "";
       this.element.style.zIndex = this.options.zindex;
     }
 
