@@ -16,13 +16,13 @@ with valid GET style parameters as the 'requestBody'.
 
 ********************************************** */
 
-var flproxy = new flensed.flXHR({ autoUpdatePlayer:true, instanceId:"myproxy1", xmlResponseText:true, onerror:handleError, onreadystatechange:handleLoading });
+var flproxy = new flensed.flXHR({ autoUpdatePlayer:true, instanceId:"myproxy1", xmlResponseText:false, onerror:handleError, onreadystatechange:handleLoading, noCacheHeader:false });
 var usecount = 0;
 
 function doit() {
 	flproxy.open("GET","http://ecs.amazonaws.com/onca/xml");
 	var request = "var1=blah&myrequest="+escape("My name is "+flproxy.instanceId+" (#"+(++usecount)+")");
-	var request = "";
+	var request=""
 	flproxy.send(request);
 }
 
