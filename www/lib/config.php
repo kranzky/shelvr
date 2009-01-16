@@ -11,6 +11,8 @@ switch ($GLOBALS['fanglr'])
 {
     case FANGLR_LIVE:
     {
+        mysql_pconnect('localhost', 'fanglr', 'adPwvVm73wB4vSQm');
+        mysql_select_db('fanglr');
         break;
     }
     case FANGLR_OFFLINE:

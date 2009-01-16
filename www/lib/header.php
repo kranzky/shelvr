@@ -9,6 +9,12 @@ $_SESSION["back"] = $_SERVER["SCRIPT_NAME"];
 <html>
 <head> 
 <title>fanglr - <? echo _("sort and show your stuff"); ?></title>
+<?
+if ($GLOBALS['fanglr'] != FANGLR_LIVE)
+{
+    echo '<meta name="robots" content="noindex, nofollow">'."\n";
+}
+?>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
 </head>
