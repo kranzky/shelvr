@@ -20,6 +20,19 @@ function init(){
 			noCacheHeader:false}); 
 		return f;
      };
+
+	// Set up the sortable panes
+	//setupPanes();
+	
+	setTimeout( function(){getStampsMulti( 	{ pane1:["B001BXA9CE","B001CM0PR8","B001ASJIS6"], 
+											  pane2:["B00009ZVHU","B000FQ9QVI","B0006B0O9U"],
+											  pane3:["B000UU5T7E","B000MK694E","B00140P9BA"] 
+											} 
+										 ) 
+						  }, 500);	
+	
+	hideresults();
+	 
 }
 
 function handleError(errObj) {
@@ -60,13 +73,22 @@ function clearStatus(msg)
 	$('status').innerHTML = messages[i];
 }
 
-function handleItemLookup(responseObject, panename) 
+function handleItemLookup(responseObject, pane) 
 {
+	
+	var multipane = false;
+	if (typeof pane != 'string') 
+	{
+		multipane = true;
+	}
+
 	setStatus("Retrieved Results...");
 	try {
 		XMLDOM = responseObject.responseXML;
 		items = XMLDOM.getElementsByTagName('Item');
 	} catch(err) {
+		alert(err);
+		$("debug").innerHTML = responseObject.responseText;
 		setStatus("Parsing Error");
 		return -1;
 	}
@@ -74,37 +96,60 @@ function handleItemLookup(responseObject, panename)
 	
 	if (items.length == 0)
 	{
-		$("debug").innerHTML = escape(responseObject.responseText);
+		alert(responseObject.responseText);
+		$("debug").innerHTML = responseObject.responseText;
 		return -2;
 	}
-	var s = "";
 	
+	var s = {};
+
 	for (var i = 0; i < items.length; i++) 
 	{	
+
 		try {
 			var item = items[i];
 			var asinid = item.getElementsByTagName("ASIN")[0].textContent;
 			
 			// only add if this entry isn't already in one of the panes.
-			if ($(asinid) == null) {
+			if ($(asinid) == null && s[asinid] == null) {
 				var imageurl = item.getElementsByTagName("MediumImage")[0].getElementsByTagName("URL")[0].textContent;
 				var title = item.getElementsByTagName("ItemAttributes")[0].getElementsByTagName("Title")[0].textContent;
 				var platform = item.getElementsByTagName("ItemAttributes")[0].getElementsByTagName("Platform")[0].textContent;
 				title = title + "<br>(" + platform +")";
-				s += makeStamp(asinid, title, imageurl);
-			}
+				var stamp = makeStamp(asinid, title, imageurl);
+				s[asinid] = stamp;
+			} 
 		} catch(err) {
 			// Probably there was no image etc
 		}
 	}
 	clearStatus();
-	$(panename).innerHTML = s;
 	
-	
-	opts = {
-		tag:'span',overlap:'horizontal',constraint: false, 
-		containment:["resultspane"],
+	if (multipane)
+	{
+		var panes = pane;
+		
+		for (p in panes)
+		{
+			var stamps = "";
+			for (var i = 0; i < panes[p].length; i++) 
+			{
+				asin = panes[p][i]
+				stamps += s[asin];
+			}
+			$(p).innerHTML = stamps;
+		}
 	}
+	else
+	{	
+		var stamps = "";
+		for (asin in s)
+		{
+			stamps += s[asin];
+		}
+		$(pane).innerHTML = stamps;
+	}
+	
 	setupPanes();
 	return 0;
 }
@@ -125,10 +170,7 @@ function itemsearch(response)
 			setStatus("No Results :(");
 		}
 	}
-	
-	
 }
-
 
 function search(){
 	setStatus("Querying Amazon...");
@@ -149,6 +191,34 @@ checkSize = function(elmt) {
 		elmt.width = elmt.height;
 	}
 }
+
+function getStampsMulti( paneHashes )
+{
+	asins = "";
+	for (var pane in paneHashes)
+	{
+		for (var i=0;i<paneHashes[pane].length;i++) {
+			if (asins == "")
+				asins += paneHashes[pane][i];
+			else
+				asins += "," + paneHashes[pane][i];
+		}
+			
+	}
+
+	setStatus("Querying Amazon...");
+    var url = 'http://ecs.amazonaws.com/onca/xml';
+	var search = escape($F('keywords').replace(/'/g,"").replace(/"/g,"")).replace(/%20/g, ",");
+	
+	var pars = { Service:"AWSECommerceService", AWSAccessKeyId:"0WP94RV66RVMX6FYBMG2",
+			     Operation:"ItemLookup", ItemId:asins,
+				 ResponseGroup:"Images,ItemAttributes" };
+
+	setStatus("sending itemlookup request...");
+    var myAjax = new Ajax.Request( url, { method: 'get', parameters:pars, onSuccess:function(response) {handleItemLookup(response, paneHashes)} });
+
+}
+
 
 getStamps = function( asins, panename )
 {
