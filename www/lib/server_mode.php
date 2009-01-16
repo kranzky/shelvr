@@ -1,1 +1,1 @@
-<? $GLOBALS['fanglr'] = FANGLR_LIVE; ?>
+<? $GLOBALS['fanglr'] = FANGLR_COMING; ?>
