@@ -12,7 +12,7 @@ if (array_key_exists("error", $_SESSION))
     echo "<p>".$_SESSION["error"]."</p>";
     echo "<p>"._("Please don't hold it against us :(")."</p>";
     echo "<p>--- Team Fanglr.</p>";
-	echo "</td><td><img src='missing.png'></td></tr></table>";
+	echo "</td><td><img src='fangr2a.png' onmouseover=\"this.src='fangr2b.png'\" onmouseout=\"this.src='fangr2a.png'\"></td></tr></table>";
     unset($_SESSION["error"]);
 }
 ?>
