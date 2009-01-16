@@ -14,6 +14,8 @@ $_SESSION["back"] = $_SERVER["SCRIPT_NAME"];
 </head>
 <body>
 <?
+if ($GLOBALS['fanglr'] == FANGLR_LIVE)
+{
 if (array_key_exists('id', $_SESSION))
 {
 ?>
@@ -28,5 +30,6 @@ else
    urlencode("#SITE##HOME#login.html")?>">
    <? echo _("Register / Sign In"); ?></a></p>
 <?
+}
 }
 ?>
