@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-16 10:01+0800\n"
+"POT-Creation-Date: 2009-01-16 13:28+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jason Hutchens <JasonHutchens@gmail.com>\n"
 "Language-Team: \n"
@@ -15,6 +15,20 @@ msgstr ""
 "X-Poedit-Basepath: c:/Users/jason.hutchens/git/shelvr/www\n"
 "X-Poedit-SearchPath-0: .\n"
 
+#: lib/coming_soon.php:2
+msgid "Fanglr Approaches..."
+msgstr ""
+
+#: lib/coming_soon.php:3
+#: index.html:3
+#, fuzzy
+msgid "Fanglr is the best way to sort and show your stuff, and find things that you'll *heart*."
+msgstr "Fanglrソートすると自分のものを表示する最良の方法であり、新しいものがあります*心臓*.見つける"
+
+#: lib/coming_soon.php:4
+msgid "We're still hammering away, but we'll be here soon. Check back early and often!"
+msgstr ""
+
 #: lib/footer.php:4
 msgid "Something went wrong behind the scenes. No worries, our engineers have been alerted!"
 msgstr "舞台裏で何か間違っている。全く心配し、当社のエンジニアをされている警告！"
@@ -24,22 +38,24 @@ msgid "Oh, Snap!"
 msgstr "ああ、スナップ！"
 
 #: lib/footer.php:12
-msgid "Please don't hold it against us :("
+#: lib/offline.php:4
+#, fuzzy
+msgid "Please don't hate us :("
 msgstr "私たちのことをされていません :("
 
-#: lib/footer.php:18
+#: lib/footer.php:20
 msgid "About"
 msgstr "〜について"
 
-#: lib/footer.php:19
+#: lib/footer.php:21
 msgid "Privacy"
 msgstr "プライバシー"
 
-#: lib/footer.php:20
+#: lib/footer.php:22
 msgid "Blog"
 msgstr "ブログ"
 
-#: lib/footer.php:21
+#: lib/footer.php:23
 msgid "Feedback"
 msgstr "フィードバック"
 
@@ -47,37 +63,42 @@ msgstr "フィードバック"
 msgid "sort and show your stuff"
 msgstr "並べ替えて自分のものを表示"
 
-#: lib/header.php:20
+#: lib/header.php:22
 msgid "Sign Out"
 msgstr "サインアウト"
 
-#: lib/header.php:29
+#: lib/header.php:31
 msgid "Register / Sign In"
 msgstr "登録/ログイン"
+
+#: lib/offline.php:2
+msgid "Fanglr is a Sad Panda"
+msgstr ""
+
+#: lib/offline.php:3
+msgid "Fanglr is offline right now, but we promise to be back real soon!"
+msgstr ""
 
 #: about.html:2
 msgid "Hello, World"
 msgstr "こんにちは、世界"
 
 #: about.html:3
-msgid "Fanglr started when Jack Casey and Jason Hutchens had some unanticipated time off from their day jobs."
-msgstr "ジャックケーシーとJasonハッチェンズFanglr時、その人の仕事をしたからいくつかの予想外の時間を始めた。 "
+msgid "We've just been born, so there's not much to say. Your best bet is to read our blog and leave feedback on our uservoice page. Thanks!"
+msgstr ""
 
 #: index.html:2
-msgid "Fanglr Loves You"
+#, fuzzy
+msgid "Fanglr Kiss You!"
 msgstr "Fanglrあなたを愛する"
-
-#: index.html:3
-msgid "Fanglr is the best way to sort and show your stuff, and find new stuff that you'll *heart*."
-msgstr "Fanglrソートすると自分のものを表示する最良の方法であり、新しいものがあります*心臓*.見つける"
 
 #: index.html:4
 msgid "We're brand spanking new, so please be gentle!"
 msgstr "私たちはできたてほやほやのため、優しくしてください！"
 
 #: login.html:16
-msgid "Your login attempt failed for some reason."
-msgstr "お客様のログインの試みが何らかの理由で失敗しました。"
+msgid "We're so sorry; your login attempt wasn't successful."
+msgstr ""
 
 #: missing.html:4
 msgid "This is not the page you're looking for. It is, in fact, a 404."
@@ -92,13 +113,22 @@ msgid "Fanglr does not store your email address; we just use it when you sign in
 msgstr "Fanglrお客様のメールアドレスを格納することはありません。我々だけで、自分のアバターを生成するときに署名を使用しています。"
 
 #: privacy.html:5
-msgid "Fanglr is not a nasty-pasty; we will never do anything naughty with the information we do store (which is your username and your stuff)."
+#, fuzzy
+msgid "Fanglr is an anti-nasty-pasty; we'll never do anything naughty with your settings and your stuff."
 msgstr "青白いFanglrは嫌なものではありません。私たちは店の情報では何もいたずらすることはありません（これはあなたのユーザ名と自分のものです） 。"
 
 #: privacy.html:6
 msgid "Fanglr promises to always let you easily delete your information from our servers."
 msgstr "Fanglr常にお客様の情報を簡単にGoogleのサーバーから削除できるように約束している。"
 
+#~ msgid ""
+#~ "Fanglr started when Jack Casey and Jason Hutchens had some unanticipated "
+#~ "time off from their day jobs."
+#~ msgstr ""
+#~ "ジャックケーシーとJasonハッチェンズFanglr時、その人の仕事をしたからいくつ"
+#~ "かの予想外の時間を始めた。 "
+#~ msgid "Your login attempt failed for some reason."
+#~ msgstr "お客様のログインの試みが何らかの理由で失敗しました。"
 #~ msgid "Fanglr is sorry: "
 #~ msgstr "Fanglr残念です： "
 #~ msgid "It is, in fact, a 404."
