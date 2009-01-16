@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
-"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
 
@@ -76,30 +76,30 @@
 
 <tr><td class="pane" id="pane1">
 	<script type="text/javascript">
-		var i=0;
-		for (i=0;i<=3;i++)
+
+		for (var i=0;i<=3;i++)
 		{
-			doStamp(i)
+			doStamp(i + 'asd')
 		}
 	</script>
 </td></tr>
 
 <tr><td class="pane" id="pane2">
 	<script type="text/javascript">
-		var i=0;
-		for (i=4;i<=7;i++)
+
+		for (var i=4;i<=7;i++)
 		{
-			doStamp(i)
+			doStamp(i + 'asd')
 		}
 	</script>
 </td></tr>
 
 <tr><td class="pane" id="pane3">
 	<script type="text/javascript">
-		var i=0;
-		for (i=11;i<=14;i++)
+
+		for (var i=11;i<=14;i++)
 		{
-			doStamp(i)	
+			doStamp(i + 'asd')	
 		}
 	</script>
 </td></tr>
@@ -109,17 +109,10 @@
 
 
 <script type="text/javascript">
-  // Set up the sortable panes
-
-  opts = {
-    tag:'span',overlap:'horizontal',constraint: false, 
-	containment:["pane1", "pane2", "pane3", "resultspane"],
-  }
-  Sortable.create('pane1', opts);
-  Sortable.create('pane2', opts);
-  Sortable.create('pane3', opts);
-  hideresults();
-  setStatus(messages[0]);
+	// Set up the sortable panes
+	setupPanes();
+	hideresults();
+  
 </script>
 
 
