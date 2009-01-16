@@ -1,3 +1,19 @@
+<?
+if (error_get_last() != NULL && !array_key_exists("error", $_SESSION))
+{
+    $_SESSION["error"] = _("Something went wrong behind the scenes. No worries, our engineers have been alerted!");
+}
+?>
+<?
+if (array_key_exists("error", $_SESSION))
+{
+    echo "<h1>"._("Oh, Snap!")."</h1>";
+    echo "<p>".$_SESSION["error"]."</p>";
+    echo "<p>"._("Please don't hold it against us :(")."</p>";
+    echo "<p>--- Team Fanglr.</p>";
+    unset($_SESSION["error"]);
+}
+?>
 <p>[
 <a href="/#HOME#about.html"><? echo _("About"); ?></a> |
 <a href="/#HOME#privacy.html"><?  echo _("Privacy"); ?></a> |

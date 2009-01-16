@@ -1,9 +1,6 @@
-<? require_once("header.php"); ?>
 <?
+require_once("header.php");
 $_SESSION["back"] = getenv("REQUEST_URI");
+$_SESSION["error"] = _("This is not the page you're looking for. It is, in fact, a 404.");
+require_once("footer.php");
 ?>
-<h1><?echo _("Oh, Snap!");?></h1>
-<p><? echo _("This is not the page you're looking for."); ?></p>
-<p><? echo _("It is, in fact, a 404."); ?></p>
-<p><? echo _("Fanglr is sorry :("); ?></p>
-<? require_once("footer.php"); ?>

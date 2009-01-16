@@ -1,6 +1,5 @@
 <?
-ini_set('session.use_only_cookies', 1);
-session_start();
+require_once("config.php");
 require_once("l10n.php");
 echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
 $_SESSION["back"] = $_SERVER["SCRIPT_NAME"];
@@ -30,9 +29,4 @@ else
    <? echo _("Register / Sign In"); ?></a></p>
 <?
 }
-if(array_key_exists("error", $_SESSION))
-{
-    echo "<p>"._("Fanglr is sorry: ")._($_SESSION["error"])."</p>";
-    echo "<p>"._("Please don't hold it against us :(")."</p>";
-    unset($_SESSION["error"]);
-}
+?>
