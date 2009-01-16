@@ -22,11 +22,35 @@ def deploy(options)
             end
         end
     end
-    source = options.source
+    source = File.join(options.git, options.source)
     target = File.join(options.webroot, options.target)
     puts "Deploying #{source} to #{target}..."
     FileUtils.rm_rf(target)
     _recursiveCopy(options, source, target)
+end
+
+#-------------------------------------------------------------------------------
+def config(options)
+    def _copyConfig(options, file, target)
+        source = File.join(options.git, 'conf', file)
+        puts "Copying #{source} to #{target}..."
+        FileUtils.cp(source, target)
+    end
+    _copyConfig(options, 'httpd.conf', options.apache)
+    _copyConfig(options, 'php.ini', options.php)
+    _copyConfig(options, 'my.ini', options.mysql)
+end
+
+#-------------------------------------------------------------------------------
+def start(options)
+    puts `net start wampmysqld`
+    puts `net start wampapache`
+end
+
+#-------------------------------------------------------------------------------
+def stop(options)
+    puts `net stop wampapache`
+    puts `net stop wampmysqld`
 end
 
 #===============================================================================
@@ -43,9 +67,13 @@ if __FILE__ == $0
     options.home = 'fanglr/'
     options.source = 'www'
     options.target = 'fanglr'
+    options.apache = 'c:\wamp\bin\apache\Apache2.2.11\conf'
+    options.php = 'c:\wamp\bin\apache\Apache2.2.11\bin'
+    options.mysql = 'c:\wamp\bin\mysql\mysql5.1.30'
+    options.git = "."
 
     opts = OptionParser.new do |opts|
-        opts.banner = "Usage: #{$0} [options]"
+        opts.banner = "Usage: #{$0} [options] [source]"
         opts.on("-w", "--webroot PATH", "#{options.webroot}") do |path|
             options.webroot = path
         end
@@ -60,6 +88,15 @@ if __FILE__ == $0
         end
         opts.on("-t", "--target DIR", "#{options.target}") do |dir|
             options.target = dir
+        end
+        opts.on("-a", "--apache DIR", "#{options.apache}") do |dir|
+            options.apache = dir
+        end
+        opts.on("-p", "--php DIR", "#{options.php}") do |dir|
+            options.php = dir
+        end
+        opts.on("-m", "--mysql DIR", "#{options.mysql}") do |dir|
+            options.mysql = dir
         end
         opts.on("-h", "--home PAGE", "#{options.home}") do |page|
             options.home = page
@@ -81,6 +118,10 @@ if __FILE__ == $0
 
     begin
         opts.parse!(ARGV)
+        options.git = ARGV[0] if ARGV.length == 1
+        if ARGV.length > 1
+            raise OptionParser::NeedlessArgument, "this is not an argument"
+        end
         unless options.deploy or options.restart or options.config
             raise OptionParser::MissingArgument, "nothing to do"
         end
@@ -93,5 +134,8 @@ if __FILE__ == $0
         exit 1
     end
 
+    stop(options) if options.restart
+    config(options) if options.config
     deploy(options) if options.deploy
+    start(options) if options.restart
 end
