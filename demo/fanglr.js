@@ -24,9 +24,9 @@ function init(){
 	// Set up the sortable panes
 	//setupPanes();
 	
-	setTimeout( function(){getStampsMulti( 	{ pane1:["B001BXA9CE","B001CM0PR8","B001ASJIS6"], 
-											  pane2:["B00009ZVHU","B000FQ9QVI","B0006B0O9U"],
-											  pane3:["B000UU5T7E","B000MK694E","B00140P9BA"] 
+	setTimeout( function(){getStampsMulti( 	{ pane1:["B001BXA9CE","B001CM0PR8","B001ASJIS6","B00140P9BA","WRONGASIN"], 
+											  pane2:["B00009ZVHU","B000FQ9QVI","B0006B0O9U","B000UU5T7E","B000MK694E"],
+											  pane3:[] 
 											} 
 										 ) 
 						  }, 500);	
@@ -135,7 +135,9 @@ function handleItemLookup(responseObject, pane)
 			for (var i = 0; i < panes[p].length; i++) 
 			{
 				asin = panes[p][i]
-				stamps += s[asin];
+				stamp = s[asin];
+				if (stamp != null)
+					stamps += s[asin];
 			}
 			$(p).innerHTML = stamps;
 		}
@@ -299,7 +301,7 @@ document.getElementById(elmnt).style.visibility="hidden";
 setupPanes = function()
 {
 	opts = {
-		tag:'span',overlap:'horizontal',constraint: false, 
+		tag:'span',overlap:'horizontal',constraint: false, dropOnEmpty:true,
 		containment:["pane1", "pane2", "pane3", "resultspane"],
 	}
 	Sortable.create('pane1', opts);
