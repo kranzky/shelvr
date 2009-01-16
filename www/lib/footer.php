@@ -7,10 +7,12 @@ if (error_get_last() != NULL && !array_key_exists("error", $_SESSION))
 <?
 if (array_key_exists("error", $_SESSION))
 {
+	echo "<table style='border:0px;'><tr><td>";
     echo "<h1>"._("Oh, Snap!")."</h1>";
     echo "<p>".$_SESSION["error"]."</p>";
     echo "<p>"._("Please don't hate us :(")."</p>";
     echo "<p>--- Team Fanglr.</p>";
+	echo "</td><td><img src='fangr2a.png' onmouseover=\"this.src='fangr2b.png'\" onmouseout=\"this.src='fangr2a.png'\"></td></tr></table>";
     unset($_SESSION["error"]);
 }
 if ($GLOBALS['fanglr'] == FANGLR_LIVE)

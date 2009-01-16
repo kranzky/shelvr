@@ -45,6 +45,7 @@ function hideresults() {
 	rp = $('resultspane');
 	rp.style.padding="0px";
 	rp.innerHTML = "";
+	setupPanes();
 }
 
 function setStatus(msg) 
@@ -107,7 +108,7 @@ function itemsearch(responseObject)
 		containment:["resultspane"],
 	}
 	Sortable.create('resultspane', opts);
-	
+	setupPanes();
 }
 
 function search(){
@@ -140,7 +141,7 @@ makeStamp = function(id, title, imageurl)
 }
 
 doStamp = function(i) {
-	s = makeStamp("sa_" + i, "Fake Game " + i, "missingimage.png" );
+	s = makeStamp(i, "Game " + i, "missingimage.png" );
 	//document.write('<span class="stamp" id=sa_' + i + '"1">');
 	//document.write('<img class="cover" id=a_' + i + '"1" src="fallout3.jpg" alt="" />')
 	//document.write('<br>This is game number ' + i)
@@ -190,3 +191,15 @@ hideelmt = function(elmnt)
 {
 document.getElementById(elmnt).style.visibility="hidden";
 }
+
+setupPanes = function()
+{
+	opts = {
+		tag:'span',overlap:'horizontal',constraint: false, 
+		containment:["pane1", "pane2", "pane3", "resultspane"],
+	}
+	Sortable.create('pane1', opts);
+	Sortable.create('pane2', opts);
+	Sortable.create('pane3', opts);
+	setStatus(messages[0]);
+ }
