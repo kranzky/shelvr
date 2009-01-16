@@ -60,24 +60,22 @@ function clearStatus(msg)
 	$('status').innerHTML = messages[i];
 }
 
-function itemsearch(responseObject) 
+function handleItemLookup(responseObject, panename) 
 {
-
 	setStatus("Retrieved Results...");
 	try {
 		XMLDOM = responseObject.responseXML;
 		items = XMLDOM.getElementsByTagName('Item');
 	} catch(err) {
-		alert(err);
 		setStatus("Parsing Error");
+		return -1;
 	}
 	setStatus("Parsing Results...");
 	
 	if (items.length == 0)
 	{
-		hideresults();
-		setStatus("No Results :(");
-		return;
+		$("debug").innerHTML = escape(responseObject.responseText);
+		return -2;
 	}
 	var s = "";
 	
@@ -100,16 +98,37 @@ function itemsearch(responseObject)
 		}
 	}
 	clearStatus();
-	$('resultspane').innerHTML = s;
-	$('resultspane').style.padding="6px";
+	$(panename).innerHTML = s;
+	
 	
 	opts = {
 		tag:'span',overlap:'horizontal',constraint: false, 
 		containment:["resultspane"],
 	}
-	Sortable.create('resultspane', opts);
 	setupPanes();
+	return 0;
 }
+
+function itemsearch(response)
+{
+	var returncode = handleItemLookup(response, "resultspane");
+	if ( returncode == 0)
+	{
+		$('resultspane').style.padding="6px";
+		Sortable.create('resultspane', opts);
+	} 
+	else 
+	{
+		hideresults();
+		if (returncode == -2)
+		{
+			setStatus("No Results :(");
+		}
+	}
+	
+	
+}
+
 
 function search(){
 	setStatus("Querying Amazon...");
@@ -130,7 +149,22 @@ checkSize = function(elmt) {
 		elmt.width = elmt.height;
 	}
 }
-		
+
+getStamps = function( asins, panename )
+{
+	setStatus("Querying Amazon...");
+    var url = 'http://ecs.amazonaws.com/onca/xml';
+	var search = escape($F('keywords').replace(/'/g,"").replace(/"/g,"")).replace(/%20/g, ",");
+	
+	var pars = { Service:"AWSECommerceService", AWSAccessKeyId:"0WP94RV66RVMX6FYBMG2",
+			     Operation:"ItemLookup", ItemId:asins,
+				 ResponseGroup:"Images,ItemAttributes" };
+
+	setStatus("sending itemlookup request...");
+    var myAjax = new Ajax.Request( url, { method: 'get', parameters:pars, onSuccess:function(response) {handleItemLookup(response, panename)} });
+}
+
+
 
 makeStamp = function(id, title, imageurl) 
 {
