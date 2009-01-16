@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-15 15:00+0800\n"
+"POT-Creation-Date: 2009-01-16 10:05+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jason Hutchens <JasonHutchens@gmail.com>\n"
 "Language-Team: \n"
@@ -15,41 +15,45 @@ msgstr ""
 "X-Poedit-Basepath: c:/Users/jason.hutchens/git/shelvr/www\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: lib/footer.php:2
+#: lib/footer.php:4
+msgid "Something went wrong behind the scenes. No worries, our engineers have been alerted!"
+msgstr "出了错幕后。不用担心，我们的工程师已经提醒！"
+
+#: lib/footer.php:10
+msgid "Oh, Snap!"
+msgstr "噢，捕捉！"
+
+#: lib/footer.php:12
+msgid "Please don't hold it against us :("
+msgstr "请不要对我们持有 :( "
+
+#: lib/footer.php:18
 msgid "About"
 msgstr "大约"
 
-#: lib/footer.php:3
+#: lib/footer.php:19
 msgid "Privacy"
 msgstr "隐私"
 
-#: lib/footer.php:4
+#: lib/footer.php:20
 msgid "Blog"
 msgstr "博客"
 
-#: lib/footer.php:5
+#: lib/footer.php:21
 msgid "Feedback"
 msgstr "反馈"
 
-#: lib/header.php:12
+#: lib/header.php:11
 msgid "sort and show your stuff"
 msgstr "排序和查看您的内容"
 
-#: lib/header.php:21
+#: lib/header.php:20
 msgid "Sign Out"
 msgstr "登出"
 
-#: lib/header.php:30
+#: lib/header.php:29
 msgid "Register / Sign In"
 msgstr "注册/登陆"
-
-#: lib/header.php:35
-msgid "Fanglr is sorry: "
-msgstr "Fanglr是抱歉： "
-
-#: lib/header.php:36
-msgid "Please don't hold it against us :("
-msgstr "请不要对我们持有 :( "
 
 #: about.html:2
 msgid "Hello, World"
@@ -64,28 +68,20 @@ msgid "Fanglr Loves You"
 msgstr "Fanglr爱你"
 
 #: index.html:3
-msgid "Fanglr is the best way to sort and show your stuff, and discover what you need to make your collection more awesome."
-msgstr "Fanglr是最好的方式排序和显示您的东西，并发现您所需要的，使您的收藏更可怕。"
+msgid "Fanglr is the best way to sort and show your stuff, and find new stuff that you'll *heart*."
+msgstr "Fanglr是最好的方式排序和查看您的内容，并找到新的东西，你会*心脏*."
 
 #: index.html:4
 msgid "We're brand spanking new, so please be gentle!"
 msgstr "我们新的品牌打屁股，所以请温柔！"
 
-#: missing.html:5
-msgid "Oh, Snap!"
-msgstr "噢，捕捉！"
+#: login.html:16
+msgid "Your login attempt failed for some reason."
+msgstr "您的登录尝试失败，因为某些原因。"
 
-#: missing.html:6
-msgid "This is not the page you're looking for."
-msgstr "这不是该网页您正在寻找。"
-
-#: missing.html:7
-msgid "It is, in fact, a 404."
-msgstr "它实际上是404 。"
-
-#: missing.html:8
-msgid "Fanglr is sorry :("
-msgstr "Fanglr是抱歉 :("
+#: missing.html:4
+msgid "This is not the page you're looking for. It is, in fact, a 404."
+msgstr "这不是该网页您正在寻找。它实际上是404 。"
 
 #: privacy.html:2
 msgid "Privacy Policy"
@@ -103,6 +99,12 @@ msgstr "Fanglr不是一个肮脏，糊状;我们永远不会做任何事情顽�
 msgid "Fanglr promises to always let you easily delete your information from our servers."
 msgstr "Fanglr承诺总是让你轻松删除您的信息从我们的服务器上。"
 
+#~ msgid "Fanglr is sorry: "
+#~ msgstr "Fanglr是抱歉： "
+#~ msgid "It is, in fact, a 404."
+#~ msgstr "它实际上是404 。"
+#~ msgid "Fanglr is sorry :("
+#~ msgstr "Fanglr是抱歉 :("
 #~ msgid "Get To Know Fanglr"
 #~ msgstr "Conheça a Fanglr"
 

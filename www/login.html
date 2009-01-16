@@ -1,6 +1,6 @@
 <?
-ini_set('session.use_only_cookies', 1);
-session_start();
+require_once("config.php");
+require_once("l10n.php");
 if (array_key_exists('token', $_GET))
 {
     include_once("rpx.php");
@@ -13,7 +13,7 @@ if (array_key_exists('token', $_GET))
     }
     catch (APIException $e)
     {
-        $_SESSION['error'] = "Your login attempt failed for some reason.";
+        $_SESSION['error'] = _("Your login attempt failed for some reason.");
         $rpx = NULL;
     }
 }

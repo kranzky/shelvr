@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-15 15:00+0800\n"
+"POT-Creation-Date: 2009-01-16 10:01+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jason Hutchens <JasonHutchens@gmail.com>\n"
 "Language-Team: \n"
@@ -15,41 +15,45 @@ msgstr ""
 "X-Poedit-Basepath: c:/Users/jason.hutchens/git/shelvr/www\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: lib/footer.php:2
+#: lib/footer.php:4
+msgid "Something went wrong behind the scenes. No worries, our engineers have been alerted!"
+msgstr "舞台裏で何か間違っている。全く心配し、当社のエンジニアをされている警告！"
+
+#: lib/footer.php:10
+msgid "Oh, Snap!"
+msgstr "ああ、スナップ！"
+
+#: lib/footer.php:12
+msgid "Please don't hold it against us :("
+msgstr "私たちのことをされていません :("
+
+#: lib/footer.php:18
 msgid "About"
 msgstr "〜について"
 
-#: lib/footer.php:3
+#: lib/footer.php:19
 msgid "Privacy"
 msgstr "プライバシー"
 
-#: lib/footer.php:4
+#: lib/footer.php:20
 msgid "Blog"
 msgstr "ブログ"
 
-#: lib/footer.php:5
+#: lib/footer.php:21
 msgid "Feedback"
 msgstr "フィードバック"
 
-#: lib/header.php:12
+#: lib/header.php:11
 msgid "sort and show your stuff"
 msgstr "並べ替えて自分のものを表示"
 
-#: lib/header.php:21
+#: lib/header.php:20
 msgid "Sign Out"
 msgstr "サインアウト"
 
-#: lib/header.php:30
+#: lib/header.php:29
 msgid "Register / Sign In"
 msgstr "登録/ログイン"
-
-#: lib/header.php:35
-msgid "Fanglr is sorry: "
-msgstr "Fanglr残念です： "
-
-#: lib/header.php:36
-msgid "Please don't hold it against us :("
-msgstr "私たちのことをされていません :("
 
 #: about.html:2
 msgid "Hello, World"
@@ -64,28 +68,20 @@ msgid "Fanglr Loves You"
 msgstr "Fanglrあなたを愛する"
 
 #: index.html:3
-msgid "Fanglr is the best way to sort and show your stuff, and discover what you need to make your collection more awesome."
-msgstr "Fanglrソートすると自分のものを表示する最良の方法であり、あなたのコレクションをより素晴らしいものを発見する必要があります。"
+msgid "Fanglr is the best way to sort and show your stuff, and find new stuff that you'll *heart*."
+msgstr "Fanglrソートすると自分のものを表示する最良の方法であり、新しいものがあります*心臓*.見つける"
 
 #: index.html:4
 msgid "We're brand spanking new, so please be gentle!"
 msgstr "私たちはできたてほやほやのため、優しくしてください！"
 
-#: missing.html:5
-msgid "Oh, Snap!"
-msgstr "ああ、スナップ！"
+#: login.html:16
+msgid "Your login attempt failed for some reason."
+msgstr "お客様のログインの試みが何らかの理由で失敗しました。"
 
-#: missing.html:6
-msgid "This is not the page you're looking for."
-msgstr "これは、お探しのページはありません。"
-
-#: missing.html:7
-msgid "It is, in fact, a 404."
-msgstr "これは、実際には、 404 。"
-
-#: missing.html:8
-msgid "Fanglr is sorry :("
-msgstr "Fanglr申し訳ないです :("
+#: missing.html:4
+msgid "This is not the page you're looking for. It is, in fact, a 404."
+msgstr "これは、お探しのページはありません。これは、実際には、 404 。"
 
 #: privacy.html:2
 msgid "Privacy Policy"
@@ -103,6 +99,12 @@ msgstr "青白いFanglrは嫌なものではありません。私たちは店の
 msgid "Fanglr promises to always let you easily delete your information from our servers."
 msgstr "Fanglr常にお客様の情報を簡単にGoogleのサーバーから削除できるように約束している。"
 
+#~ msgid "Fanglr is sorry: "
+#~ msgstr "Fanglr残念です： "
+#~ msgid "It is, in fact, a 404."
+#~ msgstr "これは、実際には、 404 。"
+#~ msgid "Fanglr is sorry :("
+#~ msgstr "Fanglr申し訳ないです :("
 #~ msgid "Get To Know Fanglr"
 #~ msgstr "Conheça a Fanglr"
 
