@@ -18,11 +18,12 @@ if (array_key_exists("error", $_SESSION))
 if ($GLOBALS['fanglr'] == FANGLR_LIVE)
 {
 ?>
-<p>[
+<p>
 <a href="/#HOME#about.html"><? echo _("About"); ?></a> |
 <a href="/#HOME#privacy.html"><?  echo _("Privacy"); ?></a> |
 <a href="http://fanglr.blogspot.com/"><? echo _("Blog"); ?></a> |
-<a href="http://fanglr.uservoice.com/"><? echo _("Feedback"); ?></a> ]</p>
+<a href="http://fanglr.uservoice.com/"><? echo _("Feedback"); ?></a>
+</p>
 <?
 }
 ?>

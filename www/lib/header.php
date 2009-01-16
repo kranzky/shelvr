@@ -19,16 +19,25 @@ if ($GLOBALS['fanglr'] == FANGLR_LIVE)
 if (array_key_exists('id', $_SESSION))
 {
 ?>
-<p><a href="/#HOME#user.html"><? echo $_SESSION["name"]; ?></a> / <a href="logout.html"><? echo _("Sign Out"); ?></a></p>
+<p>
+<a href="/#HOME#"><? echo _("Home"); ?></a> |
+<? echo _("Explore"); ?> |
+<a href="/#HOME#user.html"><? echo $_SESSION["name"]; ?></a> |
+<? echo _("Settings"); ?> |
+<a href="logout.html"><? echo _("Sign Out"); ?></a>
+</p>
 <?
 }
 else
 {
 ?>
-<p><a class="rpxnow" onclick="return false;"
+<p>
+<a href="/#HOME#"><? echo _("Home"); ?></a> |
+<? echo _("Explore") ?> |
+<a class="rpxnow" onclick="return false;"
    href="https://fanglr.rpxnow.com/openid/v2/signin?token_url=<?echo
-   urlencode("#SITE##HOME#login.html")?>">
-   <? echo _("Register / Sign In"); ?></a></p>
+   urlencode("#SITE##HOME#login.html")?>"><? echo _("Sign In"); ?></a>
+</p>
 <?
 }
 }
