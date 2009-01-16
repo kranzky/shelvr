@@ -1,0 +1,18 @@
+windows:
+    webroot: c:\wamp\www
+    url: http://localhost/
+    home: fanglr/
+    config:
+        apache: c:\wamp\bin\apache\Apache2.2.11\conf
+        mysql: c:\wamp\bin\mysql\mysql5.1.30
+        php: c:\wamp\bin\apache\Apache2.2.11\bin
+    git: .
+linux:
+    webroot: /var/www
+    url: http://fanglr.com/
+    home: ""
+    config:
+        apache: ...
+        mysql: ...
+        php: ...
+    git: /xxx/fanglr
