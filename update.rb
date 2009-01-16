@@ -3,6 +3,17 @@
 require 'fileutils'
 
 #===============================================================================
+def filteredCopy(options, source, target, indent = "")
+    puts "#{indent}Copying #{source} to #{target}..."
+    blob = File.open(source, "rb") { |file| file.read }
+    blob.gsub!("#HOME#", options.home)
+    blob.gsub!("#SITE#", options.url)
+    blob.gsub!("#WEBROOT#", options.webroot)
+    FileUtils.mkdir_p(File.dirname(target))
+    File.open(target, "wb") { |file| file.puts blob }
+end
+
+#-------------------------------------------------------------------------------
 def deploy(options)
     def _recursiveCopy(options, source, target, path = "")
         dir = File.join(source, path)
@@ -12,13 +23,8 @@ def deploy(options)
             if File.directory?(file)
                 _recursiveCopy(options, source, target, File.join(path, name))
             else
-                blob = File.open(file, "rb") { |file| blob = file.read }
-                blob.gsub!("#HOME#", options.home)
-                blob.gsub!("#SITE#", options.url)
-                dest = File.join(target, path)
-                FileUtils.mkdir_p(dest)
-                dest = File.join(dest, name)
-                File.open(dest, "wb") { |file| file.puts blob }
+                dest = File.join(target, path, name)
+                filteredCopy(options, file, dest, "    ")
             end
         end
     end
@@ -33,8 +39,7 @@ end
 def config(options)
     def _copyConfig(options, file, target)
         source = File.join(options.git, 'conf', file)
-        puts "Copying #{source} to #{target}..."
-        FileUtils.cp(source, target)
+        filteredCopy(options, source, File.join(target, file))
     end
     _copyConfig(options, 'httpd.conf', options.apache)
     _copyConfig(options, 'php.ini', options.php)
