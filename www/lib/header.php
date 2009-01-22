@@ -17,34 +17,47 @@ if ($GLOBALS['fanglr'] != FANGLR_LIVE)
 ?>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
+<script src="scripts/flXHR.js" type="text/javascript" ></script>
+<script src="scripts/prototype.js" type="text/javascript"></script>
+<script src="scripts/scriptaculous.js" type="text/javascript"></script>
+
+
+<link href="mechanics.css" rel="stylesheet" type="text/css">
+<link href="default-theme.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
+<div id="header">
+<img src="title.png"><img src="fangrheader.png">
+</div>
+<div id="main">
+<table id="maintable" align="center">
+<tr><td>
+<div class="menubar">
 <?
 if ($GLOBALS['fanglr'] == FANGLR_LIVE)
 {
 if (array_key_exists('id', $_SESSION))
 {
 ?>
-<p>
 <a href="/#HOME#"><? echo _("Home"); ?></a> |
 <? echo _("Explore"); ?> |
 <a href="/#HOME#user.html"><? echo $_SESSION["name"]; ?></a> |
 <? echo _("Settings"); ?> |
 <a href="logout.html"><? echo _("Sign Out"); ?></a>
-</p>
 <?
 }
 else
 {
 ?>
-<p>
 <a href="/#HOME#"><? echo _("Home"); ?></a> |
 <? echo _("Explore") ?> |
 <a class="rpxnow" onclick="return false;"
    href="https://fanglr.rpxnow.com/openid/v2/signin?token_url=<?echo
    urlencode("#SITE##HOME#login.html")?>"><? echo _("Sign In"); ?></a>
-</p>
 <?
 }
 }
 ?>
+</div></td></tr>
+<tr><td id="contentpane" class="pane">

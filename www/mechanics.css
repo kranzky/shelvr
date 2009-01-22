@@ -1,0 +1,69 @@
+/* reset default paddings etc */
+html, body, ul, ol, li, p, 
+h1, h2, h3, h4, h5, h6,
+form, fieldset, a {
+margin: 0;
+padding: 0;
+border: 0;
+}
+
+span.stamp {  margin:0px; padding:3px; text-align:center; vertical-align:middle; display:inline-block; width:105px; height:105px; }
+img.cover { height:105px }
+td.pane { text-align:left; padding:6px; width:100%; }
+
+table { padding:0px; border:0px; border-spacing:0px }
+
+#main { text-align:center; padding:0px;}
+#header{ text-align:center; height:87px;}
+#maintable { width:80%; }
+div.spacer { width:800px; height:3px}
+
+div.menuitem0 { text-align:left; cursor:pointer;  }
+div.menuitem1 { text-align:left; cursor:pointer;  }
+
+div.stamptext { visibility:hidden; z-index:1; position:absolute; width:100%; }
+
+input, label { display:inline-block; display:table-cell; }
+
+span.minilink 
+{
+	padding-top:4px;
+	display:table-cell; 
+	display:inline-block;  
+	width:90px;
+	font-size:75%;
+	text-align:center;
+}
+
+span.menuheading 
+{ 
+	text-align:center; 
+	width:194px; 
+	display:table-cell; 
+	display:inline-block;  
+	cursor:pointer 
+}
+
+
+span.fakemenuheading 
+{ 
+	text-align:center; 
+	display:table-cell; 
+	display:inline-block;  
+	font-size:80%;
+	width:48%;
+}
+
+div.menuheadingtext
+{ 
+	padding:2px; 
+}
+
+div.menu
+{
+	
+	width:184px;
+	padding:5px;
+	z-index:2;
+	position:absolute;
+}

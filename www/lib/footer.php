@@ -1,3 +1,4 @@
+
 <?
 if (error_get_last() != NULL && !array_key_exists("error", $_SESSION))
 {
@@ -7,7 +8,7 @@ if (error_get_last() != NULL && !array_key_exists("error", $_SESSION))
 <?
 if (array_key_exists("error", $_SESSION))
 {
-	echo "<table style='border:0px;'><tr><td>";
+	echo "<table><tr><td>";
     echo "<h1>"._("Oh, Snap!")."</h1>";
     echo "<p>".$_SESSION["error"]."</p>";
     echo "<p>"._("Please don't hate us :(")."</p>";
@@ -15,19 +16,27 @@ if (array_key_exists("error", $_SESSION))
 	echo "</td><td><img src='fangr2a.png' onmouseover=\"this.src='fangr2b.png'\" onmouseout=\"this.src='fangr2a.png'\"></td></tr></table>";
     unset($_SESSION["error"]);
 }
+?>
+</td></tr>
+<tr><td>
+<div class="menubar">
+
+<?
 if ($GLOBALS['fanglr'] == FANGLR_LIVE)
 {
 ?>
-<p>
 <a href="/#HOME#about.html"><? echo _("About"); ?></a> |
 <a href="/#HOME#privacy.html"><?  echo _("Privacy"); ?></a> |
 <a href="http://fanglr.blogspot.com/"><? echo _("Blog"); ?></a> |
 <a href="http://fanglr.uservoice.com/"><? echo _("Feedback"); ?></a>
-</p>
+
 <?
 }
 ?>
-<p>&copy;2009 Fanglr</p>
+&copy;2009 Fanglr
+</div></td></tr>
+</table></div>
+
 <?
 if ($GLOBALS['fanglr'] == FANGLR_LIVE)
 {
@@ -53,5 +62,6 @@ try {
 var pageTracker = _gat._getTracker("UA-7021515-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
+
 </body>
 </html>
