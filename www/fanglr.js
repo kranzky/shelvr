@@ -1,15 +1,12 @@
-Event.observe(window, 'load', init, false);
+//Event.observe(window, 'load', init, false);
 
-messages = [ "Welcome to fanglr, try a search!", 
-             "The menus above are super nifty, but do nothing ><;",
+messages = [ "Welcome to fanglr, try a search!",              
 			 "You can clear and hide the results pane you know ;)",
 			 "fanglr should behave pretty well if you resize it.",
-			 "Persistence and sign-on coming when cool meets mundane!",
-			 "10 results is the max that will display, search wisely!",
-			 "Known bug: If you empty a pane, it's boned!" ];
+			 "10 results is the max that will display, search wisely!" ];
 			 
 
-function init(){
+function initFanglr( pane1list, pane2list, pane3list ){
 
      //Event.observe('asin', 'keyup', search, false);
      Ajax.getTransport = function() { 
@@ -24,9 +21,9 @@ function init(){
 	// Set up the sortable panes
 	//setupPanes();
 	
-	setTimeout( function(){getStampsMulti( 	{ pane1:["B001BXA9CE","B001CM0PR8","B001ASJIS6","B00140P9BA","WRONGASIN"], 
-											  pane2:["B00009ZVHU","B000FQ9QVI","B0006B0O9U","B000UU5T7E","B000MK694E"],
-											  pane3:[] 
+	setTimeout( function(){getStampsMulti( 	{ pane1:pane1list, 
+											  pane2:pane2list,
+											  pane3:pane2list 
 											} 
 										 ) 
 						  }, 500);	

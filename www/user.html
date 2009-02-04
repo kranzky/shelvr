@@ -1,4 +1,97 @@
 <? require_once("header.php"); ?>
-<h1><?echo $_SESSION['name'];?></h1>
-<p><?echo $_SESSION['avatar'];?></p>
+<!--<h1><?echo $_SESSION['name'];?></h1>
+<p><?echo $_SESSION['avatar'];?></p> -->
+
+
+ <div class="spacer"></div>
+ <div class="menubar">
+  <span class="fakemenuheading" > 
+	
+	<form onsubmit="search(); return false;">
+	<span style="color:white;">Search:</span>  
+	<form onsubmit="search(); return false;">
+	<input id="keywords" type="text" value="BioShock" >
+	<input id="go" type="button" value="Go" onclick=search()>
+	<input id="go" type="button" value="Hide" onclick=hideresults()>
+	</form>
+  </span> 
+  <span class="fakemenuheading" > 
+		<span id="status"></span>  
+  </span> 
+  
+</td></tr>
+
+
+<tr><td class="pane" id="resultspane" >
+</td></tr>
+
+<tr><td class="pane" id="pane1">
+Fetching list, please wait... 
+<?
+echo "<br>";
+$sql = "SELECT * FROM collection where Username=" . "'" . $_SESSION['name'] . "'" . " and Pane=1";
+$result = mysql_query($sql);
+$pane1 = "";
+$pane1 = $pane1 . "[";
+$count=0;
+while($row = mysql_fetch_array($result)){
+	if ($count == 0) {
+		$pane1 = $pane1 .  "'" . $row['ItemID'] . "'";
+	} else {
+		$pane1 = $pane1 .  "'" . $row['ItemID'] . "'" . ",";
+	}
+	$count = $count + 1;
+}
+$pane1 = $pane1 .  "]";
+echo $pane1
+?>
+</td></tr>
+
+<tr><td class="pane" id="pane2">
+Fetching list, please wait...
+<?
+echo "<br>";
+$sql = "SELECT * FROM collection where Username=" . "'" . $_SESSION['name'] . "'" . " and Pane=2";
+$result = mysql_query($sql);
+$pane2 = "";
+$pane2 = $pane2 . "[";
+$count=0;
+while($row = mysql_fetch_array($result)){
+	if ($count == 0) {
+		$pane2 = $pane2 .  "'" . $row['ItemID'] . "'";
+	} else {
+		$pane2 = $pane2 .  "'" . $row['ItemID'] . "'" . ",";
+	}
+	$count = $count + 1;
+}
+$pane2 = $pane2 .  "]";
+echo $pane2
+?>
+</td></tr>
+
+<tr><td class="pane" id="pane3">
+Fetching list, please wait...
+<?
+echo "<br>";
+$sql = "SELECT * FROM collection where Username=" . "'" . $_SESSION['name'] . "'" . " and Pane=3";
+$result = mysql_query($sql);
+$pane3 = "";
+$pane3 = $pane3 . "[";
+$count=0;
+while($row = mysql_fetch_array($result)){
+	if ($count == 0) {
+		$pane3 = $pane3 .  "'" . $row['ItemID'] . "'";
+	} else {
+		$pane3 = $pane3 .  "'" . $row['ItemID'] . "'" . ",";
+	}
+	$count = $count + 1;
+}
+$pane3 = $pane3 .  "]";
+echo $pane3
+?>
+
+<script src="fanglr.js" type="text/javascript" ></script>
+<script type="text/javascript" >initFanglr( <?echo $pane1;?>, <?echo $pane2;?>, <?echo $pane3;?>);</script>
+
+
 <? require_once("footer.php"); ?>
